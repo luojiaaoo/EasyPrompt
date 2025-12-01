@@ -1,0 +1,2 @@
+# EasyPrompt
+gather usful prompt
