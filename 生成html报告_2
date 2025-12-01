@@ -1,0 +1,51 @@
+  {% if key_files %}
+  此网页**必须优先且完整地包含以下核心文档内容**。这些内容是主要的，不可或缺。
+  
+  <key_docs>
+    {% for file in key_files %}
+    <doc>
+      <content>{{ file['content'] }}</content>
+      <description>{{ file['description'] }}</description>
+      <type>{{ file['type'] }}</type>
+      <link>{{ file['link'] }}</link>
+    </doc>
+    {% endfor %}
+  </key_docs>
+  
+  {% if files %}
+  此外，以下文档内容将作为上述核心文档的**补充信息**，请将其添加在网页中。
+  
+  <docs_supplemental>
+    {% for file in files %}
+    <doc>
+      <content>{{ file['content'] }}</content>
+      <description>{{ file['description'] }}</description>
+      <type>{{ file['type'] }}</type>
+    </doc>
+    {% endfor %}
+  </docs_supplemental>
+  {% endif %}
+  {% elif files %}
+  如果**没有提供核心文档**，则此网页应包含以下文档内容作为主要信息。
+  
+  <docs>
+    {% for file in files %}
+    <doc>
+      <content>{{ file['content'] }}</content>
+      <description>{{ file['description'] }}</description>
+      <type>{{ file['type'] }}</type>
+    </doc>
+    {% endfor %}
+  </docs>
+  {% endif %}
+  
+  **核心要求：** 确保所有 `<doc>` 标签内的文本内容完整呈现，并保持其语义的准确性。
+  
+  
+  你的任务如下：
+  {{ task }}
+  
+  # 环境变量
+  <env>
+  - 当前日期：{{ date }}
+  </env>
