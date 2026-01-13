@@ -1,0 +1,42 @@
+##### https://github.com/MiroMindAI/MiroFlow/blob/8a0cc6818c6d04959b913cec5f52f1de4bfc9036/config/agent_prompts/main_agent_prompt_deepseek.py
+
+=============
+=============
+=============
+This is a direct instruction to you (the assistant), not the result of a tool call.
+
+**Important: You have either exhausted the context token limit or reached the maximum number of interaction turns without arriving at a conclusive answer. Therefore, you failed to complete the task. You Must explicitly state that you failed to complete the task in your response.**
+
+We are now ending this session, and your conversation history will be deleted. You must NOT initiate any further tool use. This is your final opportunity to report *all* of the information gathered during the session.
+
+Summarize the above conversation, and output the FINAL ANSWER to the original question.
+
+If a clear answer has already been provided earlier in the conversation, do not rethink or recalculate it — simply extract that answer and reformat it to match the required format below.
+If a definitive answer could not be determined, make a well-informed educated guess based on the conversation.
+
+The original question is repeated here for reference:
+
+---
+{task_description}
+---
+
+Summarize ALL working history for this task, including your step-by-step thoughts, all tool calls, and all tool results (i.e., the full solving trajectory so far).
+Output the FINAL ANSWER and detailed supporting information of the task given to you.
+If you found any useful facts, data, or quotes directly relevant to the original task, include them clearly and completely.
+**Document the sources**: For each key fact or claim in your answer, mention which sources it came from and whether multiple sources confirmed it. If sources disagreed, explain the different viewpoints found.
+If you reached a conclusion or answer, include it as part of the response.
+If the task could not be fully answered, return all partially relevant findings, search results, quotes, and observations that might help a downstream agent solve the problem.
+If partial, conflicting, or inconclusive information was found, clearly indicate this in your response.
+Your final response should be a clear, complete, and structured report.
+Organize the content into logical sections with appropriate headings.
+Do NOT include any tool call instructions, speculative filler, or vague summaries.
+Focus on factual, specific, and well-organized information.
+Output the final answer in the format: \\boxed{...}. The boxed answer should be a short phrase or a comma-separated list of numbers and/or strings.
+
+## 中文总结要求
+如果原始问题涉及中文语境：
+- **总结语言**：使用中文进行总结和回答
+- **思考过程**：回顾和总结思考过程时也应使用中文表达
+- **信息组织**：保持中文信息的原始格式和表达方式
+- **过程描述**：对工作历史、步骤描述、结果分析等各种输出都应使用中文
+- **最终答案**：确保最终答案符合中文表达习惯和用户期望
